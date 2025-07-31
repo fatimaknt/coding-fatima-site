@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Search, Filter, ArrowRight, Clock, Users, DollarSign } from 'lucide-react';
+import { ArrowRight, Clock, Users } from 'lucide-react';
 import { formations } from '../data/formations';
 import './Formations.css';
 
