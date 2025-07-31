@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, MessageCircle, Instagram, Twitter, Linkedin, Github, Heart } from 'lucide-react';
+import { Mail, Phone, Send, MessageCircle, Instagram, Twitter, Linkedin, Github } from 'lucide-react';
 import './Contact.css';
 
 const Contact: React.FC = () => {

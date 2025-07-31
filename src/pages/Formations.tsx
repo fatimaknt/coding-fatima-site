@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Search, Filter, ArrowRight, Clock, Users, DollarSign } from 'lucide-react';
 import { formations } from '../data/formations';
-import { Star, Clock, Users, ArrowRight } from 'lucide-react';
 import './Formations.css';
 
 const Formations: React.FC = () => {

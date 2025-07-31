@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Instagram, Twitter, Linkedin, Github, Heart } from 'lucide-react';
+import { Mail, Phone, Instagram, Twitter, Linkedin, Github, Heart } from 'lucide-react';
 import Logo from './Logo';
 import './Footer.css';
 
