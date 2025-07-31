@@ -1,46 +1,135 @@
-# Getting Started with Create React App
+# CodingFatimah - Site Vitrine
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Un site vitrine moderne et responsive pour présenter des formations en développement web et mobile au Sénégal.
 
-## Available Scripts
+## 🚀 Fonctionnalités
 
-In the project directory, you can run:
+- **Page d'accueil** - Présentation attractive avec animations
+- **Page Formations** - Catalogue des formations avec filtres et recherche
+- **Page À propos** - Parcours, mission et valeurs
+- **Page Contact** - Formulaire de contact et liens sociaux
+- **Design responsive** - Optimisé pour tous les appareils
+- **Animations fluides** - Utilisation de Framer Motion
+- **Navigation moderne** - Menu hamburger pour mobile
 
-### `npm start`
+## 🛠️ Technologies Utilisées
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **React 18** - Framework principal
+- **TypeScript** - Typage statique
+- **React Router** - Navigation entre pages
+- **Framer Motion** - Animations
+- **Lucide React** - Icônes modernes
+- **CSS3** - Styles personnalisés avec gradients et effets
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 📦 Installation
 
-### `npm test`
+1. Clonez le repository :
+```bash
+git clone <url-du-repo>
+cd site-vitrine
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Installez les dépendances :
+```bash
+npm install
+```
 
-### `npm run build`
+3. Démarrez le serveur de développement :
+```bash
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🏗️ Structure du Projet
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+src/
+├── components/          # Composants réutilisables
+│   ├── Navbar.tsx      # Navigation principale
+│   └── Footer.tsx      # Pied de page
+├── pages/              # Pages de l'application
+│   ├── Home.tsx        # Page d'accueil
+│   ├── Formations.tsx  # Catalogue des formations
+│   ├── About.tsx       # Page À propos
+│   └── Contact.tsx     # Page de contact
+├── data/               # Données statiques
+│   └── formations.ts   # Données des formations
+└── App.tsx             # Composant principal
+```
 
-### `npm run eject`
+## 🎨 Personnalisation
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Couleurs
+Les couleurs principales sont définies dans les fichiers CSS :
+- Primaire : `#667eea` (bleu-violet)
+- Secondaire : `#764ba2` (violet)
+- Gradient : `linear-gradient(135deg, #667eea 0%, #764ba2 100%)`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Formations
+Modifiez le fichier `src/data/formations.ts` pour ajouter ou modifier les formations :
+- Développement Web Frontend
+- Développement Web Backend
+- Développement Mobile
+- Développement Full Stack
+- JavaScript Fondamentaux
+- React.js Avancé
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Contact
+Mettez à jour les informations de contact dans `src/pages/Contact.tsx` :
+- Email : ccoding845@gmail.com
+- Téléphone : +221 77 087 46 19
+- WhatsApp : +221 77 087 46 19
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 📱 Responsive Design
 
-## Learn More
+Le site est entièrement responsive avec des breakpoints :
+- Mobile : < 768px
+- Tablette : 768px - 1024px
+- Desktop : > 1024px
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🚀 Déploiement
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Build de production
+```bash
+npm run build
+```
+
+### Déploiement sur Netlify
+1. Connectez votre repository GitHub à Netlify
+2. Configurez la commande de build : `npm run build`
+3. Définissez le dossier de publication : `build`
+
+### Déploiement sur Vercel
+1. Connectez votre repository GitHub à Vercel
+2. Vercel détectera automatiquement React et configurera le déploiement
+
+## 📄 Scripts Disponibles
+
+- `npm start` - Démarre le serveur de développement
+- `npm run build` - Crée une version de production
+- `npm test` - Lance les tests
+- `npm run eject` - Éjecte la configuration (irréversible)
+
+## 🤝 Contribution
+
+1. Forkez le projet
+2. Créez une branche pour votre fonctionnalité
+3. Committez vos changements
+4. Poussez vers la branche
+5. Ouvrez une Pull Request
+
+## 📞 Support
+
+Pour toute question ou support :
+- Email : ccoding845@gmail.com
+- WhatsApp : +221 77 087 46 19
+- Localisation : Sénégal
+
+## 📄 Licence
+
+Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
+
+---
+
+**CodingFatimah** - Transformez votre passion en carrière au Sénégal ! 🚀
