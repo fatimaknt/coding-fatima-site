@@ -190,6 +190,60 @@
     line-height: 1.6;
 }
 
+.upcoming-services {
+    padding: 100px 0;
+    background: white;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid #f0f0f0;
+}
+
+.service-card:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: #667eea;
+    background: white;
+}
+
+.service-icon {
+    color: #667eea;
+    margin-bottom: 1.5rem;
+}
+
+.service-content h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.service-content p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.service-status {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
 .cta {
     padding: 100px 0;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -256,6 +310,10 @@
         max-width: 100%;
         min-width: auto;
         width: 100%;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
     }
 
     .section-header h2,

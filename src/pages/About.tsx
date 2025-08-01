@@ -1,31 +1,56 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, BookOpen, Users, Target, Heart, Code } from 'lucide-react';
+import { Users, Target, Heart, Award, BookOpen, Code, Globe, Zap } from 'lucide-react';
 import './About.css';
 
 const About: React.FC = () => {
-  const stats = [
-    { icon: <Users size={40} />, number: "500+", label: "Étudiants Formés" },
-    { icon: <BookOpen size={40} />, number: "15+", label: "Formations Créées" },
-    { icon: <Award size={40} />, number: "98%", label: "Taux de Satisfaction" },
-    { icon: <Code size={40} />, number: "5+", label: "Années d'Expérience" }
-  ];
-
   const values = [
     {
+      icon: <Users size={40} />,
+      title: "Passion pour l'enseignement",
+      description: "Nous partageons notre passion du code avec enthousiasme et patience."
+    },
+    {
       icon: <Target size={40} />,
-      title: "Excellence",
-      description: "Je m'engage à fournir des formations de la plus haute qualité avec un contenu à jour et pratique."
+      title: "Excellence pédagogique",
+      description: "Nos formations sont conçues pour garantir votre réussite professionnelle."
     },
     {
       icon: <Heart size={40} />,
-      title: "Passion",
-      description: "Ma passion pour l'enseignement et le code me pousse à partager mes connaissances avec enthousiasme."
+      title: "Accompagnement personnalisé",
+      description: "Chaque étudiant bénéficie d'un suivi individualisé et d'un support dédié."
     },
     {
-      icon: <Users size={40} />,
-      title: "Accompagnement",
-      description: "Chaque étudiant est unique. Je m'adapte à votre rythme et vos besoins spécifiques."
+      icon: <Award size={40} />,
+      title: "Certification reconnue",
+      description: "Obtenez des certificats valorisés par l'industrie tech."
+    }
+  ];
+
+  const upcomingServices = [
+    {
+      icon: <BookOpen size={40} />,
+      title: "Supports de cours",
+      description: "Bientôt disponible : Des supports de cours complets et détaillés pour chaque formation.",
+      status: "En préparation"
+    },
+    {
+      icon: <Code size={40} />,
+      title: "Conception de sites web",
+      description: "Service de création de sites web professionnels sur mesure pour entreprises et particuliers.",
+      status: "Bientôt disponible"
+    },
+    {
+      icon: <Globe size={40} />,
+      title: "Applications web",
+      description: "Développement d'applications web complètes et modernes pour votre business.",
+      status: "En développement"
+    },
+    {
+      icon: <Zap size={40} />,
+      title: "Formations en entreprise",
+      description: "Formations sur mesure pour équipes et entreprises au Sénégal.",
+      status: "Prévision 2025"
     }
   ];
 
@@ -39,10 +64,10 @@ const About: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1>À Propos de Moi</h1>
+            <h1>À Propos de Coding Fatima</h1>
             <p>
-              Passionné de développement web et d'enseignement, je partage mon expertise 
-              pour vous aider à réaliser vos rêves de carrière dans la tech.
+              Une équipe de développeurs passionnés engagés dans la formation et l'épanouissement
+              de la communauté tech au Sénégal.
             </p>
           </motion.div>
         </div>
@@ -58,19 +83,21 @@ const About: React.FC = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2>Mon Parcours</h2>
+              <h2>Notre Histoire</h2>
               <p>
-                Tout a commencé il y a plus de 5 ans quand j'ai découvert ma passion pour le développement web. 
-                Après avoir travaillé sur de nombreux projets et collaboré avec des équipes internationales, 
-                j'ai réalisé que ma vraie vocation était de partager cette passion avec d'autres.
+                Coding Fatima est née de la passion d'une équipe de développeurs sénégalais
+                qui ont fait le constat que l'accès à une formation de qualité en développement
+                web et mobile était limité dans notre pays.
               </p>
               <p>
-                J'ai commencé par former des amis et des collègues, puis j'ai créé ma première formation en ligne. 
-                Le succès a été immédiat et j'ai décidé de me consacrer entièrement à l'enseignement du code.
+                Nous nous sommes engagés à démocratiser l'apprentissage du code en proposant
+                des formations accessibles, pratiques et adaptées au marché local. Notre mission
+                est de former la prochaine génération de développeurs talentueux au Sénégal.
               </p>
               <p>
-                Aujourd'hui, j'ai formé plus de 500 étudiants qui travaillent maintenant dans des entreprises 
-                de renom ou ont créé leurs propres startups. Chaque succès est une source de motivation pour continuer.
+                Avec des années d'expérience dans l'industrie tech et une passion inébranlable
+                pour l'enseignement, nous créons des parcours d'apprentissage qui transforment
+                les débutants en développeurs professionnels.
               </p>
             </motion.div>
             <motion.div
@@ -81,75 +108,28 @@ const About: React.FC = () => {
               viewport={{ once: true }}
             >
               <div className="image-placeholder">
-                <Code size={80} />
-                <p>Votre Formateur</p>
+                <Users size={80} />
+                <p>Notre équipe</p>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      <section className="stats-section">
+      <section className="about-mission">
         <div className="container">
           <motion.div
-            className="stats-grid"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                className="stat-card"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -10 }}
-              >
-                <div className="stat-icon">{stat.icon}</div>
-                <div className="stat-number">{stat.number}</div>
-                <div className="stat-label">{stat.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      <section className="mission-section">
-        <div className="container">
-          <motion.div
-            className="mission-content"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2>Ma Mission</h2>
-            <p>
-              Ma mission est de démocratiser l'accès à l'éducation technologique. 
-              Je crois que tout le monde peut apprendre à coder, peu importe son âge ou son parcours.
-            </p>
-            <p>
-              Je m'engage à créer des formations accessibles, pratiques et engageantes qui transforment 
-              de vrais débutants en développeurs compétents et confiants.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      <section className="values-section">
-        <div className="container">
-          <motion.div
-            className="section-header"
+            className="mission-header"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2>Mes Valeurs</h2>
-            <p>Les principes qui guident mon approche pédagogique</p>
+            <h2>Notre Mission</h2>
+            <p>
+              Former et accompagner les futurs développeurs du Sénégal avec des formations
+              de qualité, accessibles et adaptées aux réalités du marché local.
+            </p>
           </motion.div>
 
           <div className="values-grid">
@@ -163,7 +143,9 @@ const About: React.FC = () => {
                 viewport={{ once: true }}
                 whileHover={{ y: -10 }}
               >
-                <div className="value-icon">{value.icon}</div>
+                <div className="value-icon">
+                  {value.icon}
+                </div>
                 <h3>{value.title}</h3>
                 <p>{value.description}</p>
               </motion.div>
@@ -172,28 +154,69 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      <section className="why-teach">
+      <section className="upcoming-services">
         <div className="container">
           <motion.div
-            className="why-content"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
+            className="services-header"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2>Pourquoi J'Enseigne ?</h2>
+            <h2>Services à Venir</h2>
             <p>
-              Enseigner le code n'est pas seulement un métier pour moi, c'est une vocation. 
-              Voir mes étudiants réussir, obtenir leur premier emploi ou créer leur propre projet 
-              me donne une satisfaction inégalée.
+              Découvrez les nouveaux services que nous préparons pour enrichir
+              notre offre et mieux vous accompagner.
             </p>
+          </motion.div>
+
+          <div className="services-grid">
+            {upcomingServices.map((service, index) => (
+              <motion.div
+                key={index}
+                className="service-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10 }}
+              >
+                <div className="service-icon">
+                  {service.icon}
+                </div>
+                <div className="service-content">
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                  <span className="service-status">{service.status}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="about-cta">
+        <div className="container">
+          <motion.div
+            className="cta-content"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2>Prêt à Rejoindre Notre Équipe ?</h2>
             <p>
-              Je crois au pouvoir transformateur de l'éducation technologique. 
-              Chaque personne que j'aide à maîtriser le code contribue à façonner l'avenir numérique.
+              Commencez votre voyage dans le développement web et mobile avec
+              une équipe passionnée qui croit en votre potentiel.
             </p>
-            <p>
-              Rejoignez-moi dans cette aventure et transformons ensemble vos rêves en réalité !
-            </p>
+            <div className="cta-buttons">
+              <a href="/formations" className="btn btn-primary">
+                Découvrir nos Formations
+              </a>
+              <a href="/contact" className="btn btn-secondary">
+                Nous Contacter
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>

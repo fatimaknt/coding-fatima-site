@@ -9,24 +9,18 @@ const Footer: React.FC = () => {
 
   const footerLinks = {
     formations: [
-      { name: "Développement Web", href: "/formations" },
+      { name: "Développement Web Frontend", href: "/formations" },
+      { name: "Développement Web Backend", href: "/formations" },
       { name: "Développement Mobile", href: "/formations" },
-      { name: "Full Stack", href: "/formations" },
-      { name: "JavaScript", href: "/formations" }
-    ],
-    ressources: [
-      { name: "Blog", href: "#" },
-      { name: "Tutoriels", href: "#" },
-      { name: "Documentation", href: "#" },
-      { name: "Support", href: "/contact" }
-    ],
-    legal: [
-      { name: "Mentions légales", href: "#" },
-      { name: "Politique de confidentialité", href: "#" },
-      { name: "Conditions d'utilisation", href: "#" },
-      { name: "CGV", href: "#" }
+      { name: "Développement Full Stack", href: "/formations" }
     ]
   };
+
+  const TikTokIcon = () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+    </svg>
+  );
 
   const socialLinks = [
     { 
@@ -54,7 +48,7 @@ const Footer: React.FC = () => {
       color: "#333"
     },
     { 
-      icon: <div className="tiktok-icon">TikTok</div>, 
+      icon: <TikTokIcon />, 
       href: "https://tiktok.com/@codingfatimah", 
       label: "TikTok",
       color: "#000000"
@@ -82,11 +76,11 @@ const Footer: React.FC = () => {
             </p>
             <div className="contact-info">
               <div className="contact-item">
-                <Mail size={16} />
+                <Mail size={18} />
                 <span>ccoding845@gmail.com</span>
               </div>
               <div className="contact-item">
-                <Phone size={16} />
+                <Phone size={18} />
                 <span>+221 77 087 46 19</span>
               </div>
             </div>
@@ -99,43 +93,9 @@ const Footer: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <h4>Formations</h4>
+            <h4>Formations Disponibles</h4>
             <ul>
               {footerLinks.formations.map((link, index) => (
-                <li key={index}>
-                  <a href={link.href}>{link.name}</a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          <motion.div
-            className="footer-section"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <h4>Ressources</h4>
-            <ul>
-              {footerLinks.ressources.map((link, index) => (
-                <li key={index}>
-                  <a href={link.href}>{link.name}</a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          <motion.div
-            className="footer-section"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            <h4>Légal</h4>
-            <ul>
-              {footerLinks.legal.map((link, index) => (
                 <li key={index}>
                   <a href={link.href}>{link.name}</a>
                 </li>
@@ -167,7 +127,7 @@ const Footer: React.FC = () => {
                   rel="noopener noreferrer"
                   aria-label={social.label}
                   style={{ '--social-color': social.color } as React.CSSProperties}
-                  whileHover={{ scale: 1.2, y: -2 }}
+                  whileHover={{ scale: 1.1, y: -3 }}
                   whileTap={{ scale: 0.9 }}
                 >
                   {social.icon}

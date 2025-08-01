@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Code, Users, Award, Clock } from 'lucide-react';
+import { ArrowRight, Code, Users, Award, Clock, BookOpen, Globe, Zap } from 'lucide-react';
 import './Home.css';
 
 const Home: React.FC = () => {
@@ -25,6 +25,33 @@ const Home: React.FC = () => {
       icon: <Clock size={40} />,
       title: "Flexibilité",
       description: "Apprenez à votre rythme, quand vous voulez"
+    }
+  ];
+
+  const upcomingServices = [
+    {
+      icon: <BookOpen size={40} />,
+      title: "Supports de cours",
+      description: "Bientôt disponible : Des supports de cours complets et détaillés pour chaque formation.",
+      status: "En préparation"
+    },
+    {
+      icon: <Code size={40} />,
+      title: "Conception de sites web",
+      description: "Service de création de sites web professionnels sur mesure pour entreprises et particuliers.",
+      status: "Bientôt disponible"
+    },
+    {
+      icon: <Globe size={40} />,
+      title: "Applications web",
+      description: "Développement d'applications web complètes et modernes pour votre business.",
+      status: "En développement"
+    },
+    {
+      icon: <Zap size={40} />,
+      title: "Formations en entreprise",
+      description: "Formations sur mesure pour équipes et entreprises au Sénégal.",
+      status: "Prévision 2025"
     }
   ];
 
@@ -110,6 +137,44 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      <section className="upcoming-services">
+        <div className="container">
+          <motion.div
+            className="section-header"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2>Services à Venir</h2>
+            <p>Découvrez les nouveaux services que nous préparons pour enrichir notre offre</p>
+          </motion.div>
+
+          <div className="services-grid">
+            {upcomingServices.map((service, index) => (
+              <motion.div
+                key={index}
+                className="service-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10 }}
+              >
+                <div className="service-icon">
+                  {service.icon}
+                </div>
+                <div className="service-content">
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                  <span className="service-status">{service.status}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="cta">
         <div className="container">
           <motion.div
@@ -122,7 +187,7 @@ const Home: React.FC = () => {
             <h2>Prêt à Transformer Votre Avenir ?</h2>
             <p>
               Rejoignez des centaines d'étudiants qui ont déjà transformé leur carrière
-              grâce à mes formations. Le moment est venu de commencer votre voyage !
+              grâce à nos formations. Le moment est venu de commencer votre voyage !
             </p>
             <Link to="/contact" className="btn btn-primary">
               Commencer Maintenant
