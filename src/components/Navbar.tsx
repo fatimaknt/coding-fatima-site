@@ -46,6 +46,9 @@ const Navbar: React.FC = () => {
           <Link to="/formations" className="nav-link" onClick={closeMenu}>
             Formations
           </Link>
+          <Link to="/actualites" className="nav-link" onClick={closeMenu}>
+            Actualités
+          </Link>
           <Link to="/about" className="nav-link" onClick={closeMenu}>
             À propos
           </Link>

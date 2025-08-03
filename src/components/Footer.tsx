@@ -1,57 +1,38 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Mail, Phone, Instagram, Twitter, Linkedin, Github, Heart } from 'lucide-react';
+import { Mail, Phone, MessageCircle } from 'lucide-react';
 import Logo from './Logo';
 import './Footer.css';
 
 const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
-
   const footerLinks = {
     formations: [
-      { name: "Développement Web Frontend", href: "/formations" },
-      { name: "Développement Web Backend", href: "/formations" },
-      { name: "Développement Mobile", href: "/formations" },
-      { name: "Développement Full Stack", href: "/formations" }
+      { name: 'Développement Web Frontend', url: '/formations' },
+      { name: 'Développement Web Backend', url: '/formations' },
+      { name: 'Développement Mobile', url: '/formations' },
+      { name: 'Développement Full Stack', url: '/formations' }
     ]
   };
 
-  const TikTokIcon = () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-    </svg>
-  );
-
   const socialLinks = [
-    { 
-      icon: <Instagram size={20} />, 
-      href: "https://instagram.com/codingfatimah", 
-      label: "Instagram",
-      color: "#E4405F"
+    {
+      name: 'WhatsApp',
+      url: 'https://wa.me/221770874619',
+      icon: <MessageCircle size={20} />
     },
-    { 
-      icon: <Twitter size={20} />, 
-      href: "https://twitter.com/codingfatimah", 
-      label: "Twitter",
-      color: "#1DA1F2"
+    {
+      name: 'Facebook',
+      url: 'https://facebook.com/codingfatimah',
+      icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
     },
-    { 
-      icon: <Linkedin size={20} />, 
-      href: "https://linkedin.com/in/codingfatimah", 
-      label: "LinkedIn",
-      color: "#0077B5"
+    {
+      name: 'Instagram',
+      url: 'https://instagram.com/codingfatimah',
+      icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
     },
-    { 
-      icon: <Github size={20} />, 
-      href: "https://github.com/codingfatimah", 
-      label: "GitHub",
-      color: "#333"
-    },
-    { 
-      icon: <TikTokIcon />, 
-      href: "https://tiktok.com/@codingfatimah", 
-      label: "TikTok",
-      color: "#000000"
+    {
+      name: 'TikTok',
+      url: 'https://tiktok.com/@codingfatimah',
+      icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
     }
   ];
 
@@ -59,83 +40,61 @@ const Footer: React.FC = () => {
     <footer className="footer">
       <div className="container">
         <div className="footer-content">
-          <motion.div
-            className="footer-section"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <div className="footer-brand">
-              <Logo />
-              <h3>CodingFatimah</h3>
+          <div className="footer-brand">
+            <Logo />
+            <div>
+              <h3>Coding Fatima</h3>
+              <p>Formation en développement web et mobile au Sénégal</p>
             </div>
-            <p>
-              Formations en ligne de qualité pour maîtriser le développement web et mobile. 
-              Transformez votre passion en carrière avec nos cours spécialisés au Sénégal.
-            </p>
-            <div className="contact-info">
-              <div className="contact-item">
-                <Mail size={18} />
-                <span>ccoding845@gmail.com</span>
-              </div>
-              <div className="contact-item">
-                <Phone size={18} />
-                <span>+221 77 087 46 19</span>
-              </div>
-            </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="footer-section"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-          >
-            <h4>Formations Disponibles</h4>
+          <div className="footer-section">
+            <h4>Formations</h4>
             <ul>
-              {footerLinks.formations.map((link, index) => (
-                <li key={index}>
-                  <a href={link.href}>{link.name}</a>
+              {footerLinks.formations.map((link) => (
+                <li key={link.name}>
+                  <a href={link.url}>{link.name}</a>
                 </li>
               ))}
             </ul>
-          </motion.div>
-        </div>
+          </div>
 
-        <motion.div
-          className="footer-bottom"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-          <div className="footer-bottom-content">
-            <div className="copyright">
-              <p>
-                © {currentYear} CodingFatimah. Tous droits réservés. 
-                Fait avec <Heart size={16} className="heart-icon" /> au Sénégal.
-              </p>
+          <div className="footer-section">
+            <h4>Contact</h4>
+            <div className="contact-info">
+              <div className="contact-item">
+                <Phone size={16} />
+                <span>+221 770 874 619</span>
+              </div>
+              <div className="contact-item">
+                <Mail size={16} />
+                <span>ccoding845@gmail.com</span>
+              </div>
             </div>
+          </div>
+
+          <div className="footer-section">
+            <h4>Suivez-nous</h4>
             <div className="social-links">
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={index}
-                  href={social.href}
+              {socialLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={social.label}
-                  style={{ '--social-color': social.color } as React.CSSProperties}
-                  whileHover={{ scale: 1.1, y: -3 }}
-                  whileTap={{ scale: 0.9 }}
+                  className="social-link"
+                  title={link.name}
                 >
-                  {social.icon}
-                </motion.a>
+                  {link.icon}
+                </a>
               ))}
             </div>
           </div>
-        </motion.div>
+        </div>
+
+        <div className="footer-bottom">
+          <p>&copy; 2025 Coding Fatima. Tous droits réservés.</p>
+        </div>
       </div>
     </footer>
   );

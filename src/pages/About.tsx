@@ -1,55 +1,44 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Users, Target, Heart, Award, BookOpen, Code, Globe, Zap } from 'lucide-react';
+import { Users, Target, Award, BookOpen, Palette, Globe } from 'lucide-react';
 import './About.css';
 
 const About: React.FC = () => {
   const values = [
     {
-      icon: <Users size={40} />,
-      title: "Passion pour l'enseignement",
-      description: "Nous partageons notre passion du code avec enthousiasme et patience."
+      icon: <Users size={32} />,
+      title: "Excellence",
+      description: "Nous visons l'excellence dans chaque formation que nous proposons."
     },
     {
-      icon: <Target size={40} />,
-      title: "Excellence pédagogique",
-      description: "Nos formations sont conçues pour garantir votre réussite professionnelle."
+      icon: <Target size={32} />,
+      title: "Pratique",
+      description: "Nos formations sont axées sur la pratique et les projets concrets."
     },
     {
-      icon: <Heart size={40} />,
-      title: "Accompagnement personnalisé",
-      description: "Chaque étudiant bénéficie d'un suivi individualisé et d'un support dédié."
-    },
-    {
-      icon: <Award size={40} />,
-      title: "Certification reconnue",
-      description: "Obtenez des certificats valorisés par l'industrie tech."
+      icon: <Award size={32} />,
+      title: "Certification",
+      description: "Obtenez une certification à la fin de chaque formation."
     }
   ];
 
   const upcomingServices = [
     {
-      icon: <BookOpen size={40} />,
+      icon: <BookOpen size={32} />,
       title: "Supports de cours",
-      description: "Bientôt disponible : Des supports de cours complets et détaillés pour chaque formation.",
-      status: "En préparation"
+      description: "Matériels pédagogiques complets et ressources d'apprentissage",
+      status: "Prévision 2025"
     },
     {
-      icon: <Code size={40} />,
-      title: "Conception de sites web",
-      description: "Service de création de sites web professionnels sur mesure pour entreprises et particuliers.",
-      status: "Bientôt disponible"
+      icon: <Palette size={32} />,
+      title: "Conception d'applications web",
+      description: "Services de création de sites web et d'applications sur mesure",
+      status: "Prévision 2025"
     },
     {
-      icon: <Globe size={40} />,
-      title: "Applications web",
-      description: "Développement d'applications web complètes et modernes pour votre business.",
-      status: "En développement"
-    },
-    {
-      icon: <Zap size={40} />,
-      title: "Formations en entreprise",
-      description: "Formations sur mesure pour équipes et entreprises au Sénégal.",
+      icon: <Globe size={32} />,
+      title: "Conception d'applications mobiles",
+      description: "Développement d'applications mobiles pour iOS et Android",
       status: "Prévision 2025"
     }
   ];
@@ -64,10 +53,10 @@ const About: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1>À Propos de Coding Fatima</h1>
+            <h1>À propos de Coding Fatima</h1>
             <p>
-              Une équipe de développeurs passionnés engagés dans la formation et l'épanouissement
-              de la communauté tech au Sénégal.
+              Nous sommes une équipe de développeurs passionnés qui se sont engagés dans la formation 
+              pour partager notre expertise et aider les futurs développeurs à réussir.
             </p>
           </motion.div>
         </div>
@@ -78,38 +67,32 @@ const About: React.FC = () => {
           <div className="story-content">
             <motion.div
               className="story-text"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
               <h2>Notre Histoire</h2>
               <p>
-                Coding Fatima est née de la passion d'une équipe de développeurs sénégalais
-                qui ont fait le constat que l'accès à une formation de qualité en développement
-                web et mobile était limité dans notre pays.
+                Coding Fatima est née de la passion pour le développement et l'enseignement. 
+                Notre équipe de développeurs expérimentés a décidé de partager son savoir-faire 
+                avec les futurs talents du numérique au Sénégal.
               </p>
               <p>
-                Nous nous sommes engagés à démocratiser l'apprentissage du code en proposant
-                des formations accessibles, pratiques et adaptées au marché local. Notre mission
-                est de former la prochaine génération de développeurs talentueux au Sénégal.
-              </p>
-              <p>
-                Avec des années d'expérience dans l'industrie tech et une passion inébranlable
-                pour l'enseignement, nous créons des parcours d'apprentissage qui transforment
-                les débutants en développeurs professionnels.
+                Nous croyons que la technologie peut transformer des vies et créer des opportunités. 
+                C'est pourquoi nous nous engageons à offrir des formations de qualité, accessibles 
+                et adaptées aux besoins du marché local.
               </p>
             </motion.div>
             <motion.div
-              className="story-image"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              className="image-placeholder"
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <div className="image-placeholder">
-                <Users size={80} />
-                <p>Notre équipe</p>
+              <div className="placeholder-content">
+                <Users size={64} />
+                <h3>Notre Équipe</h3>
+                <p>Développeurs passionnés</p>
               </div>
             </motion.div>
           </div>
@@ -127,12 +110,18 @@ const About: React.FC = () => {
           >
             <h2>Notre Mission</h2>
             <p>
-              Former et accompagner les futurs développeurs du Sénégal avec des formations
-              de qualité, accessibles et adaptées aux réalités du marché local.
+              Former la prochaine génération de développeurs talentueux au Sénégal en offrant 
+              des formations pratiques, modernes et accessibles.
             </p>
           </motion.div>
 
-          <div className="values-grid">
+          <motion.div
+            className="values-grid"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
             {values.map((value, index) => (
               <motion.div
                 key={index}
@@ -143,14 +132,12 @@ const About: React.FC = () => {
                 viewport={{ once: true }}
                 whileHover={{ y: -10 }}
               >
-                <div className="value-icon">
-                  {value.icon}
-                </div>
+                <div className="value-icon">{value.icon}</div>
                 <h3>{value.title}</h3>
                 <p>{value.description}</p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -165,12 +152,18 @@ const About: React.FC = () => {
           >
             <h2>Services à Venir</h2>
             <p>
-              Découvrez les nouveaux services que nous préparons pour enrichir
-              notre offre et mieux vous accompagner.
+              Nous développons constamment de nouveaux services pour mieux vous accompagner 
+              dans votre parcours de développement.
             </p>
           </motion.div>
 
-          <div className="services-grid">
+          <motion.div
+            className="services-grid"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
             {upcomingServices.map((service, index) => (
               <motion.div
                 key={index}
@@ -181,9 +174,7 @@ const About: React.FC = () => {
                 viewport={{ once: true }}
                 whileHover={{ y: -10 }}
               >
-                <div className="service-icon">
-                  {service.icon}
-                </div>
+                <div className="service-icon">{service.icon}</div>
                 <div className="service-content">
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
@@ -191,7 +182,7 @@ const About: React.FC = () => {
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -204,17 +195,17 @@ const About: React.FC = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2>Prêt à Rejoindre Notre Équipe ?</h2>
+            <h2>Prêt à rejoindre nos formations ?</h2>
             <p>
-              Commencez votre voyage dans le développement web et mobile avec
-              une équipe passionnée qui croit en votre potentiel.
+              Rejoignez notre communauté de développeurs et commencez votre parcours 
+              vers une carrière passionnante dans le développement.
             </p>
             <div className="cta-buttons">
               <a href="/formations" className="btn btn-primary">
-                Découvrir nos Formations
+                Découvrir nos formations
               </a>
               <a href="/contact" className="btn btn-secondary">
-                Nous Contacter
+                Nous contacter
               </a>
             </div>
           </motion.div>

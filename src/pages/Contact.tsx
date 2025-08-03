@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, Send, MessageCircle, Instagram, Twitter, Linkedin, Github } from 'lucide-react';
+import { Mail, Phone, Send, MessageCircle } from 'lucide-react';
 import './Contact.css';
 
 const Contact: React.FC = () => {
@@ -11,84 +11,38 @@ const Contact: React.FC = () => {
     message: ''
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulation d'envoi
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    alert('Message envoyé avec succès ! Je vous répondrai dans les plus brefs délais.');
-    setFormData({ nom: '', email: '', sujet: '', message: '' });
-    setIsSubmitting(false);
+    console.log('Form submitted:', formData);
   };
 
-  const contactInfo = [
-    {
-      icon: <Mail size={24} />,
-      title: "Email",
-      value: "ccoding845@gmail.com",
-      link: "mailto:ccoding845@gmail.com"
-    },
-    {
-      icon: <Phone size={24} />,
-      title: "Téléphone",
-      value: "+221 77 087 46 19",
-      link: "tel:+221770874619"
-    },
-    {
-      icon: <MessageCircle size={24} />,
-      title: "WhatsApp",
-      value: "WhatsApp Business",
-      link: "https://wa.me/221770874619"
-    }
-  ];
-
-  const TikTokIcon = () => (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-    </svg>
-  );
-
   const socialLinks = [
-    { 
-      icon: <Instagram size={24} />, 
-      name: "Instagram", 
-      url: "https://instagram.com/codingfatimah",
-      color: "#E4405F"
+    {
+      name: 'WhatsApp',
+      url: 'https://wa.me/221770874619',
+      icon: <MessageCircle size={24} />
     },
-    { 
-      icon: <Twitter size={24} />, 
-      name: "Twitter", 
-      url: "https://twitter.com/codingfatimah",
-      color: "#1DA1F2"
+    {
+      name: 'Facebook',
+      url: 'https://facebook.com/codingfatimah',
+      icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
     },
-    { 
-      icon: <Linkedin size={24} />, 
-      name: "LinkedIn", 
-      url: "https://linkedin.com/in/codingfatimah",
-      color: "#0077B5"
+    {
+      name: 'Instagram',
+      url: 'https://instagram.com/codingfatimah',
+      icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
     },
-    { 
-      icon: <Github size={24} />, 
-      name: "GitHub", 
-      url: "https://github.com/codingfatimah",
-      color: "#333"
-    },
-    { 
-      icon: <TikTokIcon />, 
-      name: "TikTok", 
-      url: "https://tiktok.com/@codingfatimah",
-      color: "#000000"
+    {
+      name: 'TikTok',
+      url: 'https://tiktok.com/@codingfatimah',
+      icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
     }
   ];
 
@@ -102,10 +56,10 @@ const Contact: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1>Contactez-Moi</h1>
+            <h1>Contactez-nous</h1>
             <p>
-              Prêt à commencer votre voyage dans le développement web et mobile ? 
-              Contactez-moi pour discuter de vos objectifs et de la formation qui vous convient le mieux.
+              Nous sommes disponibles pour répondre à toutes vos questions sur nos formations 
+              et vous accompagner dans votre parcours de développement.
             </p>
           </motion.div>
         </div>
@@ -116,63 +70,48 @@ const Contact: React.FC = () => {
           <div className="contact-grid">
             <motion.div
               className="contact-info"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <div className="contact-info-content">
-                <h2>Informations de Contact</h2>
-                <p>
-                  Je suis disponible pour répondre à toutes vos questions sur mes formations. 
-                  N'hésitez pas à me contacter par le moyen qui vous convient le mieux.
-                </p>
+              <h2>Informations de contact</h2>
+              <p>
+                N'hésitez pas à nous contacter pour toute question concernant nos formations 
+                ou pour discuter de vos projets de développement.
+              </p>
 
-                <div className="contact-methods">
-                  {contactInfo.map((info, index) => (
-                    <motion.a
-                      key={index}
-                      href={info.link}
-                      className="contact-method"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      whileHover={{ y: -5 }}
-                    >
-                      <div className="method-icon">{info.icon}</div>
-                      <div className="method-content">
-                        <h3>{info.title}</h3>
-                        <p>{info.value}</p>
-                      </div>
-                    </motion.a>
-                  ))}
+              <div className="contact-details">
+                <div className="contact-item">
+                  <Phone size={20} />
+                  <div>
+                    <h4>Téléphone</h4>
+                    <p>+221 770 874 619</p>
+                  </div>
+                </div>
+
+                <div className="contact-item">
+                  <Mail size={20} />
+                  <div>
+                    <h4>Email</h4>
+                    <p>ccoding845@gmail.com</p>
+                  </div>
                 </div>
               </div>
 
               <div className="social-links">
+                <h3>Suivez-moi sur les réseaux sociaux</h3>
                 <div className="social-grid">
-                  <h3>Suivez-moi sur les réseaux sociaux</h3>
-                  {socialLinks.map((social, index) => (
-                    <motion.a
-                      key={index}
-                      href={social.url}
+                  {socialLinks.map((link) => (
+                    <a
+                      key={link.name}
+                      href={link.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="social-link"
-                      style={{ 
-                        '--social-color': social.color
-                      } as React.CSSProperties}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      whileHover={{ y: -5 }}
+                      title={link.name}
                     >
-                      <div className="social-icon">
-                        {social.icon}
-                      </div>
-                    </motion.a>
+                      {link.icon}
+                    </a>
                   ))}
                 </div>
               </div>
@@ -180,88 +119,60 @@ const Contact: React.FC = () => {
 
             <motion.div
               className="contact-form"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <h2>Envoyez-moi un Message</h2>
+              <h2>Envoyez-nous un message</h2>
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                  <label htmlFor="nom">Nom complet *</label>
                   <input
                     type="text"
-                    id="nom"
                     name="nom"
+                    placeholder="Votre nom"
                     value={formData.nom}
                     onChange={handleChange}
                     required
-                    placeholder="Votre nom complet"
                   />
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="email">Email *</label>
                   <input
                     type="email"
-                    id="email"
                     name="email"
+                    placeholder="Votre email"
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    placeholder="votre.email@exemple.com"
                   />
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="sujet">Sujet *</label>
-                  <select
-                    id="sujet"
+                  <input
+                    type="text"
                     name="sujet"
+                    placeholder="Sujet"
                     value={formData.sujet}
                     onChange={handleChange}
                     required
-                  >
-                    <option value="">Choisissez un sujet</option>
-                    <option value="formation">Demande d'information sur une formation</option>
-                    <option value="tarifs">Demande de tarifs</option>
-                    <option value="personnalisee">Formation personnalisée</option>
-                    <option value="autre">Autre</option>
-                  </select>
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="message">Message *</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={6}
-                    placeholder="Décrivez votre projet ou vos questions..."
                   />
                 </div>
 
-                <motion.button
-                  type="submit"
-                  className="btn btn-primary submit-btn"
-                  disabled={isSubmitting}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="spinner"></div>
-                      <span>Envoi en cours...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Send size={18} />
-                      <span>Envoyer le Message</span>
-                    </>
-                  )}
-                </motion.button>
+                <div className="form-group">
+                  <textarea
+                    name="message"
+                    placeholder="Votre message"
+                    rows={5}
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                  ></textarea>
+                </div>
+
+                <button type="submit" className="btn btn-primary">
+                  <Send size={20} />
+                  Envoyer le message
+                </button>
               </form>
             </motion.div>
           </div>

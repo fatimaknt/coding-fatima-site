@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Clock, Users } from 'lucide-react';
+import { Clock, Calendar, ExternalLink } from 'lucide-react';
 import { formations } from '../data/formations';
 import './Formations.css';
 
@@ -11,7 +11,7 @@ const Formations: React.FC = () => {
   const niveaux = ['Tous', 'Débutant', 'Intermédiaire', 'Avancé'];
 
   const filteredFormations = formations.filter(formation => {
-    const matchesFilter = filter === 'Tous' || formation.niveau === filter;
+    const matchesFilter = filter === 'Tous' || formation.niveau.includes(filter);
     const matchesSearch = formation.titre.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          formation.description.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesFilter && matchesSearch;
@@ -27,10 +27,10 @@ const Formations: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1>Mes Formations</h1>
+            <h1>Nos Formations</h1>
             <p>
-              Découvrez mes formations complètes pour maîtriser le développement web et mobile. 
-              Du débutant à l'expert, il y en a pour tous les niveaux !
+              Découvrez nos formations spécialisées en développement web et mobile. 
+              Des parcours complets pour maîtriser les technologies modernes.
             </p>
           </motion.div>
         </div>
@@ -38,7 +38,7 @@ const Formations: React.FC = () => {
 
       <section className="formations-content">
         <div className="container">
-          <div className="filters">
+          <div className="filters-section">
             <motion.div
               className="search-box"
               initial={{ opacity: 0, x: -20 }}
@@ -88,40 +88,47 @@ const Formations: React.FC = () => {
               >
                 <div className="formation-image">
                   <img src={formation.image} alt={formation.titre} />
-                  <div className="formation-level">{formation.niveau}</div>
                 </div>
                 
                 <div className="formation-content">
-                  <h3>{formation.titre}</h3>
-                  <p>{formation.description}</p>
+                  <div className="formation-header">
+                    <h3 className="formation-title">{formation.titre}</h3>
+                    <span className="formation-level">{formation.niveau}</span>
+                  </div>
+                  
+                  <p className="formation-description">{formation.description}</p>
                   
                   <div className="formation-details">
-                    <div className="detail">
+                    <div className="formation-duration">
                       <Clock size={16} />
-                      <span>{formation.duree}</span>
+                      {formation.duree}
                     </div>
-                    <div className="detail">
-                      <Users size={16} />
-                      <span>Support inclus</span>
+                    <div className="formation-price">
+                      {formation.prix.toLocaleString()} FCFA
                     </div>
                   </div>
-
+                  
                   <div className="formation-technologies">
                     {formation.technologies.map((tech, techIndex) => (
-                      <span key={techIndex} className="tech-tag">
+                      <span key={techIndex} className="technology-tag">
                         {tech}
                       </span>
                     ))}
                   </div>
-
-                  <div className="formation-footer">
-                    <div className="price">
-                      <span className="currency">FCFA</span>
-                      <span className="amount">{formation.prix.toLocaleString()}</span>
-                    </div>
-                    <a href={formation.lienInscription} className="btn btn-primary">
+                  
+                  <div className="formation-actions">
+                    <a
+                      href={formation.lienInscription}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-inscription"
+                    >
+                      <Calendar size={16} />
                       S'inscrire
-                      <ArrowRight size={16} />
+                    </a>
+                    <a href="/contact" className="btn-details">
+                      <ExternalLink size={16} />
+                      Détails
                     </a>
                   </div>
                 </div>
@@ -136,7 +143,9 @@ const Formations: React.FC = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6 }}
             >
-              <p>Aucune formation trouvée pour votre recherche.</p>
+              <Clock size={48} />
+              <h3>Aucune formation trouvée</h3>
+              <p>Essayez de modifier vos filtres ou votre recherche.</p>
             </motion.div>
           )}
         </div>

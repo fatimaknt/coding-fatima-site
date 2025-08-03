@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Formations from './pages/Formations';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Actualites from './pages/Actualites';
 import './App.css';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             <Route path="/formations" element={<Formations />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/actualites" element={<Actualites />} />
           </Routes>
         </main>
         <Footer />

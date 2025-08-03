@@ -2,7 +2,7 @@ export interface Formation {
   id: number;
   titre: string;
   description: string;
-  niveau: 'Débutant' | 'Intermédiaire' | 'Avancé';
+  niveau: string;
   duree: string;
   prix: number;
   lienInscription: string;
@@ -15,73 +15,49 @@ export const formations: Formation[] = [
   {
     id: 1,
     titre: "Développement Web Frontend",
-    description: "Maîtrisez HTML, CSS et JavaScript pour créer des sites web modernes et responsives. Apprenez les frameworks populaires comme React.",
-    niveau: "Débutant",
+    description: "Maîtrisez HTML, CSS, JavaScript et React pour créer des interfaces web modernes et interactives.",
+    niveau: "Débutant à Intermédiaire",
     duree: "8 semaines",
     prix: 15000,
-    lienInscription: "#",
-    technologies: ["HTML", "CSS", "JavaScript", "React"],
+    lienInscription: "https://forms.google.com/your-form-id",
+    technologies: ["HTML", "CSS", "JavaScript", "React", "TypeScript"],
     image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=400",
     disponible: true
   },
   {
     id: 2,
     titre: "Développement Web Backend",
-    description: "Créez des applications web complètes avec Node.js, Express et bases de données. APIs RESTful et authentification.",
+    description: "Apprenez Node.js, Express et les bases de données pour créer des APIs robustes.",
     niveau: "Intermédiaire",
     duree: "10 semaines",
     prix: 15000,
-    lienInscription: "#",
-    technologies: ["Node.js", "Express", "MongoDB", "JWT"],
+    lienInscription: "https://forms.google.com/your-form-id",
+    technologies: ["Node.js", "Express", "MongoDB", "PostgreSQL", "REST API"],
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400",
     disponible: true
   },
   {
     id: 3,
     titre: "Développement Mobile",
-    description: "Développez des applications mobiles avec React Native. Créez des apps pour iOS et Android avec un seul code.",
+    description: "Créez des applications mobiles cross-platform avec React Native.",
     niveau: "Intermédiaire",
     duree: "12 semaines",
     prix: 15000,
-    lienInscription: "#",
-    technologies: ["React Native", "JavaScript", "Expo", "APIs"],
+    lienInscription: "https://forms.google.com/your-form-id",
+    technologies: ["React Native", "JavaScript", "Expo", "Mobile UI/UX"],
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400",
     disponible: true
   },
   {
     id: 4,
     titre: "Développement Full Stack",
-    description: "Formation complète pour devenir développeur full stack. Frontend, backend, base de données et déploiement.",
+    description: "Formation complète pour devenir développeur full stack avec toutes les technologies modernes.",
     niveau: "Avancé",
     duree: "16 semaines",
     prix: 15000,
-    lienInscription: "#",
-    technologies: ["React", "Node.js", "MongoDB", "Docker"],
+    lienInscription: "https://forms.google.com/your-form-id",
+    technologies: ["React", "Node.js", "MongoDB", "TypeScript", "Docker"],
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400",
-    disponible: true
-  },
-  {
-    id: 5,
-    titre: "JavaScript Fondamentaux",
-    description: "Initiez-vous à la programmation avec JavaScript. Variables, fonctions, objets et manipulation du DOM.",
-    niveau: "Débutant",
-    duree: "6 semaines",
-    prix: 15000,
-    lienInscription: "#",
-    technologies: ["JavaScript", "HTML", "CSS", "DOM"],
-    image: "https://images.unsplash.com/photo-1579468118864-1b9ea3c0db4a?w=400",
-    disponible: true
-  },
-  {
-    id: 6,
-    titre: "React.js Avancé",
-    description: "Maîtrisez React avec Hooks, Context API, Redux et les bonnes pratiques. Créez des applications complexes.",
-    niveau: "Avancé",
-    duree: "10 semaines",
-    prix: 15000,
-    lienInscription: "#",
-    technologies: ["React", "Hooks", "Redux", "TypeScript"],
-    image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400",
     disponible: true
   }
 ]; 
