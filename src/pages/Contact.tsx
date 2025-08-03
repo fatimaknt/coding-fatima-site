@@ -1,44 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, Send, MessageCircle } from 'lucide-react';
 import './Contact.css';
 
 const Contact: React.FC = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
-
-    const formData = new FormData(e.currentTarget);
-    
-    try {
-      const response = await fetch('https://formspree.io/f/xkgzvyjl', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-
-      if (response.ok) {
-        setSubmitStatus('success');
-        e.currentTarget.reset();
-      } else {
-        console.error('Erreur Formspree:', response.status, response.statusText);
-        setSubmitStatus('error');
-      }
-    } catch (error) {
-      console.error('Erreur envoi email:', error);
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus('idle'), 5000);
-    }
-  };
-
   const socialLinks = [
     {
       name: 'WhatsApp',
@@ -141,7 +106,6 @@ const Contact: React.FC = () => {
             >
               <h2>Envoyez-nous un message</h2>
               
-              {/* Formulaire de test simple */}
               <form action="https://formspree.io/f/xkgzvyjl" method="POST">
                 <div className="form-group">
                   <input
@@ -187,77 +151,6 @@ const Contact: React.FC = () => {
                   Envoyer le message
                 </button>
               </form>
-
-              {/* Formulaire JavaScript (en commentaire pour test) */}
-              {/*
-              <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Votre nom"
-                    required
-                  />
-                </div>
-
-                <div className="form-group">
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Votre email"
-                    required
-                  />
-                </div>
-
-                <div className="form-group">
-                  <input
-                    type="text"
-                    name="subject"
-                    placeholder="Sujet"
-                    required
-                  />
-                </div>
-
-                <div className="form-group">
-                  <textarea
-                    name="message"
-                    placeholder="Votre message"
-                    rows={5}
-                    required
-                  ></textarea>
-                </div>
-
-                <button 
-                  type="submit" 
-                  className={`btn btn-primary ${isSubmitting ? 'loading' : ''}`}
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="spinner"></div>
-                      Envoi en cours...
-                    </>
-                  ) : (
-                    <>
-                      <Send size={20} />
-                      Envoyer le message
-                    </>
-                  )}
-                </button>
-
-                {submitStatus === 'success' && (
-                  <div className="success-message">
-                    Message envoyé avec succès ! Nous vous répondrons bientôt.
-                  </div>
-                )}
-
-                {submitStatus === 'error' && (
-                  <div className="error-message">
-                    Erreur lors de l'envoi. Veuillez réessayer ou nous contacter directement.
-                  </div>
-                )}
-              </form>
-              */}
             </motion.div>
           </div>
         </div>

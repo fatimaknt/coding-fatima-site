@@ -48,7 +48,7 @@ const Actualites: React.FC = () => {
       formData.append('EMAIL', email);
       formData.append('b_YOUR_USER_ID_YOUR_LIST_ID', ''); // Honeypot field
 
-      const response = await fetch(MAILCHIMP_URL, {
+      await fetch(MAILCHIMP_URL, {
         method: 'POST',
         body: formData,
         mode: 'no-cors' // Mailchimp nécessite no-cors
