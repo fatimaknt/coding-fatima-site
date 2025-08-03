@@ -13,7 +13,7 @@ const Formations: React.FC = () => {
   const filteredFormations = formations.filter(formation => {
     const matchesFilter = filter === 'Tous' || formation.niveau.includes(filter);
     const matchesSearch = formation.titre.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         formation.description.toLowerCase().includes(searchTerm.toLowerCase());
+      formation.description.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesFilter && matchesSearch;
   });
 
@@ -29,7 +29,7 @@ const Formations: React.FC = () => {
           >
             <h1>Nos Formations</h1>
             <p>
-              Découvrez nos formations spécialisées en développement web et mobile. 
+              Découvrez nos formations spécialisées en développement web et mobile.
               Des parcours complets pour maîtriser les technologies modernes.
             </p>
           </motion.div>
@@ -89,15 +89,15 @@ const Formations: React.FC = () => {
                 <div className="formation-image">
                   <img src={formation.image} alt={formation.titre} />
                 </div>
-                
+
                 <div className="formation-content">
                   <div className="formation-header">
                     <h3 className="formation-title">{formation.titre}</h3>
                     <span className="formation-level">{formation.niveau}</span>
                   </div>
-                  
+
                   <p className="formation-description">{formation.description}</p>
-                  
+
                   <div className="formation-details">
                     <div className="formation-duration">
                       <Clock size={16} />
@@ -107,7 +107,7 @@ const Formations: React.FC = () => {
                       {formation.prix.toLocaleString()} FCFA
                     </div>
                   </div>
-                  
+
                   <div className="formation-technologies">
                     {formation.technologies.map((tech, techIndex) => (
                       <span key={techIndex} className="technology-tag">
@@ -115,7 +115,7 @@ const Formations: React.FC = () => {
                       </span>
                     ))}
                   </div>
-                  
+
                   <div className="formation-actions">
                     <a
                       href={formation.lienInscription}
@@ -128,7 +128,7 @@ const Formations: React.FC = () => {
                     </a>
                     <a href="/contact" className="btn-details">
                       <ExternalLink size={16} />
-                      Détails
+                      plus d'infos
                     </a>
                   </div>
                 </div>
