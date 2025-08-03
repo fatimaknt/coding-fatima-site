@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Users, Clock, ExternalLink, Star, Filter } from 'lucide-react';
+import { Calendar, Users, Clock, ExternalLink, Star, Filter, Mail } from 'lucide-react';
 import { actualites } from '../data/actualites';
 import './Actualites.css';
 
 const Actualites: React.FC = () => {
   const [filter, setFilter] = useState<string>('Tous');
   const [searchTerm, setSearchTerm] = useState('');
+  const [email, setEmail] = useState('');
+  const [isSubscribing, setIsSubscribing] = useState(false);
+  const [subscribeStatus, setSubscribeStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const types = ['Tous', 'meet', 'formation', 'evenement', 'annonce'];
 
@@ -30,10 +33,46 @@ const Actualites: React.FC = () => {
     }
   };
 
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setIsSubscribing(true);
+    setSubscribeStatus('idle');
+
+    try {
+      // Remplacez par votre URL Mailchimp
+      const MAILCHIMP_URL = 'https://your-domain.us1.list-manage.com/subscribe/post?u=YOUR_USER_ID&id=YOUR_LIST_ID';
+
+      const formData = new FormData();
+      formData.append('EMAIL', email);
+      formData.append('b_YOUR_USER_ID_YOUR_LIST_ID', ''); // Honeypot field
+
+      const response = await fetch(MAILCHIMP_URL, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors' // Mailchimp nécessite no-cors
+      });
+
+      // Avec no-cors, on ne peut pas vérifier la réponse
+      // On considère que c'est un succès si pas d'erreur
+      setSubscribeStatus('success');
+      setEmail('');
+      setTimeout(() => setSubscribeStatus('idle'), 5000);
+
+    } catch (error) {
+      console.error('Erreur abonnement:', error);
+      setSubscribeStatus('error');
+      setTimeout(() => setSubscribeStatus('idle'), 5000);
+    } finally {
+      setIsSubscribing(false);
+    }
+  };
+
   const filteredActualites = actualites.filter(actualite => {
     const matchesFilter = filter === 'Tous' || actualite.type === filter;
     const matchesSearch = actualite.titre.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         actualite.description.toLowerCase().includes(searchTerm.toLowerCase());
+      actualite.description.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesFilter && matchesSearch;
   });
 
@@ -49,7 +88,7 @@ const Actualites: React.FC = () => {
           >
             <h1>Actualités & Événements</h1>
             <p>
-              Restez informés des dernières nouvelles, des meets gratuits, 
+              Restez informés des dernières nouvelles, des meets gratuits,
               des dates de formations et des événements spéciaux de Coding Fatima.
             </p>
           </motion.div>
@@ -124,10 +163,10 @@ const Actualites: React.FC = () => {
                     </div>
                   )}
                 </div>
-                
+
                 <div className="actualite-content">
                   <div className="actualite-header">
-                    <span 
+                    <span
                       className="type-badge"
                       style={{ backgroundColor: getTypeColor(actualite.type) }}
                     >
@@ -138,10 +177,10 @@ const Actualites: React.FC = () => {
                       {actualite.date}
                     </div>
                   </div>
-                  
+
                   <h3>{actualite.titre}</h3>
                   <p>{actualite.description}</p>
-                  
+
                   <div className="actualite-footer">
                     {actualite.lien ? (
                       <a href={actualite.lien} className="btn btn-primary">
@@ -149,10 +188,10 @@ const Actualites: React.FC = () => {
                         <ExternalLink size={16} />
                       </a>
                     ) : (
-                      <button className="btn btn-secondary">
+                      <a href="/contact" className="btn btn-secondary">
                         Contactez-nous
                         <Users size={16} />
-                      </button>
+                      </a>
                     )}
                   </div>
                 </div>
@@ -186,20 +225,48 @@ const Actualites: React.FC = () => {
           >
             <h2>Restez Informés !</h2>
             <p>
-              Recevez nos actualités, annonces de meets gratuits et dates de formations 
+              Recevez nos actualités, annonces de meets gratuits et dates de formations
               directement dans votre boîte mail.
             </p>
-            <div className="newsletter-form">
+            <form onSubmit={handleSubscribe} className="newsletter-form">
               <input
                 type="email"
                 placeholder="Votre adresse email"
                 className="newsletter-input"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
               />
-              <button className="btn btn-primary">
-                S'abonner
-                <ExternalLink size={16} />
+              <button
+                type="submit"
+                className={`btn btn-primary ${isSubscribing ? 'loading' : ''}`}
+                disabled={isSubscribing}
+              >
+                {isSubscribing ? (
+                  <>
+                    <div className="spinner"></div>
+                    Inscription...
+                  </>
+                ) : (
+                  <>
+                    <Mail size={16} />
+                    S'abonner
+                  </>
+                )}
               </button>
-            </div>
+            </form>
+
+            {subscribeStatus === 'success' && (
+              <div className="success-message">
+                Inscription réussie ! Vous recevrez bientôt nos actualités.
+              </div>
+            )}
+
+            {subscribeStatus === 'error' && (
+              <div className="error-message">
+                Erreur lors de l'inscription. Veuillez réessayer.
+              </div>
+            )}
           </motion.div>
         </div>
       </section>

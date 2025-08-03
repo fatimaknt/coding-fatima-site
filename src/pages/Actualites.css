@@ -215,6 +215,31 @@
     transition: all 0.3s ease;
 }
 
+.actualite-footer .btn-primary {
+    background: #667eea;
+    color: white;
+}
+
+.actualite-footer .btn-primary:hover {
+    background: #5a67d8;
+    transform: translateY(-2px);
+    color: white;
+    text-decoration: none;
+}
+
+.actualite-footer .btn-secondary {
+    background: transparent;
+    color: #667eea;
+    border: 2px solid #667eea;
+}
+
+.actualite-footer .btn-secondary:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
 .no-results {
     text-align: center;
     padding: 4rem 2rem;
@@ -291,11 +316,58 @@
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 .newsletter-form .btn:hover {
     background: #f8f9fa;
     transform: translateY(-2px);
+    color: #667eea;
+    text-decoration: none;
+}
+
+.newsletter-form .btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.newsletter-form .btn.loading {
+    position: relative;
+}
+
+.spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.success-message {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10B981;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    font-weight: 500;
+}
+
+.error-message {
+    background: rgba(239, 68, 68, 0.2);
+    color: #EF4444;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    font-weight: 500;
 }
 
 @media (max-width: 768px) {

@@ -27,19 +27,19 @@ const About: React.FC = () => {
       icon: <BookOpen size={32} />,
       title: "Supports de cours",
       description: "Matériels pédagogiques complets et ressources d'apprentissage",
-      status: "Prévision 2025"
+      status: "Bientôt disponible"
     },
     {
       icon: <Palette size={32} />,
       title: "Conception d'applications web",
       description: "Services de création de sites web et d'applications sur mesure",
-      status: "Prévision 2025"
+      status: "Bientôt disponible"
     },
     {
       icon: <Globe size={32} />,
       title: "Conception d'applications mobiles",
       description: "Développement d'applications mobiles pour iOS et Android",
-      status: "Prévision 2025"
+      status: "Bientôt disponible"
     }
   ];
 

@@ -1,104 +1,103 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { ArrowRight, Code, Users, Award, Clock, BookOpen, Globe, Zap } from 'lucide-react';
+import { Code, Users, Clock, Award, BookOpen, Palette, Globe } from 'lucide-react';
 import './Home.css';
 
 const Home: React.FC = () => {
   const features = [
     {
       icon: <Code size={40} />,
-      title: "Cours Pratiques",
-      description: "Apprenez en pratiquant avec des projets réels"
+      title: "Formations Pratiques",
+      description: "Apprenez en pratiquant avec des projets concrets et des exercices interactifs."
     },
     {
       icon: <Users size={40} />,
-      title: "Support Personnalisé",
-      description: "Accompagnement individuel et suivi personnalisé"
+      title: "Accompagnement Personnalisé",
+      description: "Bénéficiez d'un suivi individualisé et d'un support dédié tout au long de votre formation."
+    },
+    {
+      icon: <Clock size={40} />,
+      title: "Flexibilité Totale",
+      description: "Étudiez à votre rythme avec des cours accessibles 24h/24 et 7j/7."
     },
     {
       icon: <Award size={40} />,
       title: "Certification",
-      description: "Obtenez un certificat reconnu à la fin de chaque formation"
-    },
-    {
-      icon: <Clock size={40} />,
-      title: "Flexibilité",
-      description: "Apprenez à votre rythme, quand vous voulez"
+      description: "Obtenez une certification reconnue à la fin de chaque formation."
     }
   ];
 
   const upcomingServices = [
     {
-      icon: <BookOpen size={40} />,
+      icon: <BookOpen size={32} />,
       title: "Supports de cours",
-      description: "Bientôt disponible : Des supports de cours complets et détaillés pour chaque formation.",
-      status: "En préparation"
-    },
-    {
-      icon: <Code size={40} />,
-      title: "Conception de sites web",
-      description: "Service de création de sites web professionnels sur mesure pour entreprises et particuliers.",
+      description: "Matériels pédagogiques complets et ressources d'apprentissage",
       status: "Bientôt disponible"
     },
     {
-      icon: <Globe size={40} />,
-      title: "Applications web",
-      description: "Développement d'applications web complètes et modernes pour votre business.",
-      status: "En développement"
+      icon: <Palette size={32} />,
+      title: "Conception d'applications web",
+      description: "Services de création de sites web et d'applications sur mesure",
+      status: "Bientôt disponible"
     },
     {
-      icon: <Zap size={40} />,
-      title: "Formations en entreprise",
-      description: "Formations sur mesure pour équipes et entreprises au Sénégal.",
-      status: "Prévision 2025"
+      icon: <Globe size={32} />,
+      title: "Conception d'applications mobiles",
+      description: "Développement d'applications mobiles pour iOS et Android",
+      status: "Bientôt disponible"
     }
   ];
 
   return (
-    <div className="home">
+    <div className="home-page">
       <section className="hero">
         <div className="container">
-          <div className="hero-content">
-            <motion.div
-              className="hero-text"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <h1>
-                Devenez un <span className="highlight">Développeur Expert</span>
-              </h1>
-              <p>
-                Formations en ligne de qualité pour maîtriser le développement web et mobile.
-                JavaScript, React, React Native et plus encore.
-                Transformez votre passion en carrière !
-              </p>
-              <div className="hero-buttons">
-                <Link to="/formations" className="btn btn-primary">
-                  Découvrir les Formations
-                  <ArrowRight size={20} />
-                </Link>
-                <Link to="/contact" className="btn btn-secondary">
-                  Me Contacter
-                </Link>
+          <motion.div
+            className="hero-content"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1>Formez-vous au développement web et mobile</h1>
+            <p>
+              Découvrez nos formations spécialisées pour maîtriser les technologies modernes 
+              et transformer votre passion en carrière au Sénégal.
+            </p>
+            <div className="hero-buttons">
+              <a href="/formations" className="btn btn-primary">
+                Découvrir nos formations
+              </a>
+              <a href="/contact" className="btn btn-secondary">
+                Nous contacter
+              </a>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="code-animation"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <div className="code-block">
+              <div className="code-header">
+                <span className="dot red"></span>
+                <span className="dot yellow"></span>
+                <span className="dot green"></span>
               </div>
-            </motion.div>
-            <motion.div
-              className="hero-image"
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <div className="code-animation">
-                <div className="code-line">const student = {`{`}</div>
-                <div className="code-line">  name: "Vous",</div>
-                <div className="code-line">  goal: "Apprendre le code",</div>
-                <div className="code-line">  result: "Carrière en tech"</div>
-                <div className="code-line">{`}`}</div>
+              <div className="code-content">
+                <pre>
+                  <code>
+{`const developer = {
+  name: "Vous",
+  skills: ["JavaScript", "React"],
+  future: "Full Stack Developer"
+}`}
+                  </code>
+                </pre>
               </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -111,11 +110,19 @@ const Home: React.FC = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2>Pourquoi Choisir Mes Formations ?</h2>
-            <p>Une approche unique pour un apprentissage efficace</p>
+            <h2>Pourquoi choisir nos formations ?</h2>
+            <p>
+              Des formations de qualité adaptées aux besoins du marché local
+            </p>
           </motion.div>
 
-          <div className="features-grid">
+          <motion.div
+            className="features-grid"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
             {features.map((feature, index) => (
               <motion.div
                 key={index}
@@ -126,31 +133,38 @@ const Home: React.FC = () => {
                 viewport={{ once: true }}
                 whileHover={{ y: -10 }}
               >
-                <div className="feature-icon">
-                  {feature.icon}
-                </div>
+                <div className="feature-icon">{feature.icon}</div>
                 <h3>{feature.title}</h3>
                 <p>{feature.description}</p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       <section className="upcoming-services">
         <div className="container">
           <motion.div
-            className="section-header"
+            className="services-header"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
             <h2>Services à Venir</h2>
-            <p>Découvrez les nouveaux services que nous préparons pour enrichir notre offre</p>
+            <p>
+              Nous développons constamment de nouveaux services pour mieux vous accompagner 
+              dans votre parcours de développement.
+            </p>
           </motion.div>
 
-          <div className="services-grid">
+          <motion.div
+            className="services-grid"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
             {upcomingServices.map((service, index) => (
               <motion.div
                 key={index}
@@ -161,9 +175,7 @@ const Home: React.FC = () => {
                 viewport={{ once: true }}
                 whileHover={{ y: -10 }}
               >
-                <div className="service-icon">
-                  {service.icon}
-                </div>
+                <div className="service-icon">{service.icon}</div>
                 <div className="service-content">
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
@@ -171,7 +183,7 @@ const Home: React.FC = () => {
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -184,15 +196,19 @@ const Home: React.FC = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2>Prêt à Transformer Votre Avenir ?</h2>
+            <h2>Prêt à rejoindre nos formations ?</h2>
             <p>
-              Rejoignez des centaines d'étudiants qui ont déjà transformé leur carrière
-              grâce à nos formations. Le moment est venu de commencer votre voyage !
+              Commencez votre voyage dans le développement web et mobile avec 
+              une équipe passionnée qui croit en votre potentiel.
             </p>
-            <Link to="/contact" className="btn btn-primary">
-              Commencer Maintenant
-              <ArrowRight size={20} />
-            </Link>
+            <div className="cta-buttons">
+              <a href="/formations" className="btn btn-primary">
+                Découvrir nos formations
+              </a>
+              <a href="/contact" className="btn btn-secondary">
+                Nous contacter
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>

@@ -19,7 +19,7 @@ export const formations: Formation[] = [
     niveau: "Débutant à Intermédiaire",
     duree: "8 semaines",
     prix: 15000,
-    lienInscription: "https://forms.google.com/your-form-id",
+    lienInscription: "https://forms.gle/5D5LUAgr1LQ7ywbt5",
     technologies: ["HTML", "CSS", "JavaScript", "React", "TypeScript"],
     image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=400",
     disponible: true
@@ -31,7 +31,7 @@ export const formations: Formation[] = [
     niveau: "Intermédiaire",
     duree: "10 semaines",
     prix: 15000,
-    lienInscription: "https://forms.google.com/your-form-id",
+    lienInscription: "https://forms.gle/5D5LUAgr1LQ7ywbt5",
     technologies: ["Node.js", "Express", "MongoDB", "PostgreSQL", "REST API"],
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400",
     disponible: true
@@ -43,7 +43,7 @@ export const formations: Formation[] = [
     niveau: "Intermédiaire",
     duree: "12 semaines",
     prix: 15000,
-    lienInscription: "https://forms.google.com/your-form-id",
+    lienInscription: "https://forms.gle/5D5LUAgr1LQ7ywbt5",
     technologies: ["React Native", "JavaScript", "Expo", "Mobile UI/UX"],
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400",
     disponible: true
@@ -55,7 +55,7 @@ export const formations: Formation[] = [
     niveau: "Avancé",
     duree: "16 semaines",
     prix: 15000,
-    lienInscription: "https://forms.google.com/your-form-id",
+    lienInscription: "https://forms.gle/5D5LUAgr1LQ7ywbt5",
     technologies: ["React", "Node.js", "MongoDB", "TypeScript", "Docker"],
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400",
     disponible: true
